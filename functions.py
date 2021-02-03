@@ -76,3 +76,17 @@ def get_df(symbol, typeOfDf):
     df = df.set_axis(cols, axis='columns', inplace=False)
 
     return df
+
+
+def convert(s):
+    # initialization of string to ""
+    new = ""
+
+    # traverse in the string
+    for x in s:
+        if(x == ','):
+            continue
+        new += x
+
+        # return string
+    return new

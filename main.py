@@ -25,14 +25,23 @@ gross_profit_df = df_financials["Gross Profit"].head(1)
 total_assets_df = df_balance_sheet["Total Assets"].head(1)
 total_liabilities_df = df_balance_sheet["Total Liabilities Net Minority Interest"].head(1)
 
-gross_profit = gross_profit_df.iloc[0]
-total_assets = total_assets_df.iloc[0]
-total_liabilities = total_liabilities_df.iloc[0]
 
 
+gross_profit_as_xml = gross_profit_df.iloc[0]
+total_assets_as_xml = total_assets_df.iloc[0]
+total_liabilities_as_xml = total_liabilities_df.iloc[0]
+
+gross_profit = float(f.convert([str(s) for s in gross_profit_as_xml]))
+total_assets = float(f.convert([str(s) for s in total_assets_as_xml]))
+total_liabilities = float(f.convert([str(s) for s in total_liabilities_as_xml]))
+
+
+
+print(type(gross_profit))
 print(f'Gross profit: {gross_profit}')
 print(f"Total assets: {total_assets}")
 print(f"Total liabilities: {total_liabilities}")
+
 
 aapl = yf.Ticker("AAPL")
 
