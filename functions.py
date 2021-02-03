@@ -9,8 +9,6 @@ import numpy as np
 
 def get_df(symbol, typeOfDf):
 
-    symbol = symbol
-
     url = 'https://finance.yahoo.com/quote/' + symbol + '/'+typeOfDf+'?p=' + symbol
 
     # Set up the request headers that we're going to use, to simulate
@@ -77,6 +75,7 @@ def get_df(symbol, typeOfDf):
 
     return df
 
+# converts a list of characters to a string without any commas
 
 def convert(s):
     # initialization of string to ""
@@ -84,9 +83,17 @@ def convert(s):
 
     # traverse in the string
     for x in s:
-        if(x == ','):
+        if x == ',':
             continue
         new += x
 
         # return string
-    return new
+    return float(new)
+
+
+def get_return_on_capital(companyObject):
+    return companyObject.gross_profit/(companyObject.assets-companyObject.liabilities)
+
+
+def get_earnings_yield(companyObject):
+    return companyObject.eps/companyObject.stock_price
