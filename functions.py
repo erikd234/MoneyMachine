@@ -77,7 +77,7 @@ def get_df(symbol, typeOfDf):
 
 # converts a list of characters to a string without any commas
 
-def convert(s):
+def convert_to_float(s):
     # initialization of string to ""
     new = ""
 
@@ -89,6 +89,18 @@ def convert(s):
 
         # return string
     return float(new)
+
+def convert_to_string(s):
+    # initialization of string to ""
+    new = ""
+
+    # traverse in the string
+    for x in s:
+        new += x
+
+        # return string
+    return new
+
 
 
 def get_return_on_capital(companyObject):
